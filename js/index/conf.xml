@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<js>
+  <script path="./js/index/IndexViewController.js"></script>
+  <script path="./js/index/IndexDataModel.js"></script>
+  <script path="./js/jquery-plugin-data.js"></script>
+</js>

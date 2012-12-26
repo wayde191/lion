@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<js>
+  <script path="./js/honey/HoneyViewController.js"></script>
+  <script path="./js/honey/HoneyDataModel.js"></script>
+  <script path="./js/jquery-plugin-data.js"></script>
+</js>
