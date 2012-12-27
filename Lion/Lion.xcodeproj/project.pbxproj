@@ -66,6 +66,11 @@
 		B73DCB59168B4EA3001FB42E /* jquery-ui-1.8.21.custom.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-ui-1.8.21.custom.min.js"; sourceTree = "<group>"; };
 		B73DCB5A168B4EA3001FB42E /* logic.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = logic.js; sourceTree = "<group>"; };
 		B73DCB5B168B4EA3001FB42E /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = test.html; path = ../test.html; sourceTree = "<group>"; };
+		B77E2A6E168C28490022C939 /* conf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = conf.xml; sourceTree = "<group>"; };
+		B77E2A6F168C28750022C939 /* GanttDataModel.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GanttDataModel.js; sourceTree = "<group>"; };
+		B77E2A70168C28940022C939 /* GanttViewController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GanttViewController.js; sourceTree = "<group>"; };
+		B77E2A71168C303B0022C939 /* gantt.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = gantt.html; sourceTree = "<group>"; };
+		B77E2A72168C30700022C939 /* gantt.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = gantt.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -73,11 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				B73DCB1B168B4EA3001FB42E /* css */,
-				B73DCB3D168B4EA3001FB42E /* honey.html */,
 				B73DCB3E168B4EA3001FB42E /* html */,
 				B73DCB41168B4EA3001FB42E /* index.html */,
-				B73DCB42168B4EA3001FB42E /* js */,
+				B73DCB3D168B4EA3001FB42E /* honey.html */,
+				B77E2A71168C303B0022C939 /* gantt.html */,
 				B73DCB5B168B4EA3001FB42E /* test.html */,
+				B73DCB42168B4EA3001FB42E /* js */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +95,7 @@
 				B73DCB1E168B4EA3001FB42E /* images */,
 				B73DCB3B168B4EA3001FB42E /* jquery-ui-1.8.21.custom.css */,
 				B73DCB3C168B4EA3001FB42E /* main.css */,
+				B77E2A72168C30700022C939 /* gantt.css */,
 			);
 			name = css;
 			path = ../css;
@@ -142,7 +149,9 @@
 		B73DCB42168B4EA3001FB42E /* js */ = {
 			isa = PBXGroup;
 			children = (
+				B77E2A6C168C282F0022C939 /* gantt */,
 				B73DCB43168B4EA3001FB42E /* honey */,
+				B73DCB53168B4EA3001FB42E /* index */,
 				B73DCB47168B4EA3001FB42E /* IHBlock.js */,
 				B73DCB48168B4EA3001FB42E /* IHCategory.js */,
 				B73DCB49168B4EA3001FB42E /* IHEngine.js */,
@@ -155,7 +164,6 @@
 				B73DCB50168B4EA3001FB42E /* IHUser.js */,
 				B73DCB51168B4EA3001FB42E /* IHUtils.js */,
 				B73DCB52168B4EA3001FB42E /* IHXML.js */,
-				B73DCB53168B4EA3001FB42E /* index */,
 				B73DCB57168B4EA3001FB42E /* jquery-1.7.2.min.js */,
 				B73DCB58168B4EA3001FB42E /* jquery-plugin-data.js */,
 				B73DCB59168B4EA3001FB42E /* jquery-ui-1.8.21.custom.min.js */,
@@ -183,6 +191,16 @@
 				B73DCB56168B4EA3001FB42E /* IndexViewController.js */,
 			);
 			path = index;
+			sourceTree = "<group>";
+		};
+		B77E2A6C168C282F0022C939 /* gantt */ = {
+			isa = PBXGroup;
+			children = (
+				B77E2A6E168C28490022C939 /* conf.xml */,
+				B77E2A6F168C28750022C939 /* GanttDataModel.js */,
+				B77E2A70168C28940022C939 /* GanttViewController.js */,
+			);
+			path = gantt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
