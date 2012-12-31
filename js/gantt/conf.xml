@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<js>
+    <script path="./js/gantt/GanttViewController.js"></script>
+    <script path="./js/gantt/GanttDataModel.js"></script>
+    <script path="./js/jquery-plugin-data.js"></script>
+</js>
