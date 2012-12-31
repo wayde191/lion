@@ -12,12 +12,10 @@
 ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
                
 gantt.prototype.init = function(){
-this.request = new ih.Service();
-this.sysUser = new ih.User();
-this.delegate = null;
-this.awards = null;
-
-console.log("what is that");
+    this.request = new ih.Service();
+    this.sysUser = new ih.User();
+    this.delegate = null;
+    this.awards = null;
 };
 
 

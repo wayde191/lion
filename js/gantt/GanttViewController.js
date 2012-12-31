@@ -17,18 +17,29 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
     };
 
     gantt.prototype.viewDidLoad = function(){
-    console.log("jajajaj");
-        //this.bindBtnsEvent();
+        this.bindBtnsEvent();
     };
-
+    
+    gantt.prototype.onControllerBtnClicked = ih.$F(function(selectedBtn){
+        var jqEle = $(selectedBtn.currentTarget);
+        var id = jqEle.attr('id');
+        console.log(id);
+        switch (id) {
+            case 'awards':
+                break;
+            default:
+                break;
+        }
+    });
 
     gantt.prototype.bindBtnsEvent = function(){
         var self = this;
-        $("#awards").click(ih.$F(self.onControllerBtnClicked).bind(self));
-        $("#suggestion").click(ih.$F(self.onControllerBtnClicked).bind(self));
-        $("#improve").click(ih.$F(self.onControllerBtnClicked).bind(self));
-        $("#advice").click(ih.$F(self.onControllerBtnClicked).bind(self));
-        $("#goodjob").click(ih.$F(self.onControllerBtnClicked).bind(self));
+        $("#prepage").click(ih.$F(self.onControllerBtnClicked).bind(self));
+        $("#nextpage").click(ih.$F(self.onControllerBtnClicked).bind(self));
+        $("#draw").click(ih.$F(self.onControllerBtnClicked).bind(self));
+        $("#new").click(ih.$F(self.onControllerBtnClicked).bind(self));
+        $("#modify").click(ih.$F(self.onControllerBtnClicked).bind(self));
+        $("#delete").click(ih.$F(self.onControllerBtnClicked).bind(self));
     };
 
     gantt.prototype.showMsg = function(dialogMsg){
