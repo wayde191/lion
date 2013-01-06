@@ -51,7 +51,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
                 if (1 == response.status) {
                    this.tasks = response.data;
                    this.totalPageNum = response.totalPage;
-                   $("#totalPageNumber").val(this.totalPageNum);
+                   $("#totalPageNumber").attr("value", this.totalPageNum);
                    console.log(this.tasks);
                     $('[rel*="data{menuitem}"]').setData({
                       menuitem : response.data
