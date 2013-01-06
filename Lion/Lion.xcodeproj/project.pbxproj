@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		B7351EE01699B67400ABABF2 /* ganttcontent.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = ganttcontent.html; sourceTree = "<group>"; };
 		B73DCB1C168B4EA3001FB42E /* animate.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = animate.css; sourceTree = "<group>"; };
 		B73DCB1D168B4EA3001FB42E /* button.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = button.css; sourceTree = "<group>"; };
 		B73DCB1F168B4EA3001FB42E /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -1231,6 +1232,8 @@
 		B77E2F84168C35F30022C939 /* wp-trackback.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = "wp-trackback.php"; sourceTree = "<group>"; };
 		B77E2F85168C35F30022C939 /* xmlrpc.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = xmlrpc.php; sourceTree = "<group>"; };
 		B77E2F86168C39F60022C939 /* gantt.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = gantt.html; path = ../gantt.html; sourceTree = "<group>"; };
+		B7BA666E16918D9900905908 /* database.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = database.php; sourceTree = "<group>"; };
+		B7BA66701691A05A00905908 /* gantt.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = gantt.php; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -1302,6 +1305,7 @@
 			children = (
 				B73DCB3F168B4EA3001FB42E /* honeywords.html */,
 				B73DCB40168B4EA3001FB42E /* loginform.html */,
+				B7351EE01699B67400ABABF2 /* ganttcontent.html */,
 			);
 			name = html;
 			path = ../html;
@@ -1412,6 +1416,7 @@
 		B77E2A7A168C35F30022C939 /* config */ = {
 			isa = PBXGroup;
 			children = (
+				B7BA666E16918D9900905908 /* database.php */,
 				B77E2A7B168C35F30022C939 /* autoload.php */,
 				B77E2A7C168C35F30022C939 /* config.php */,
 				B77E2A7D168C35F30022C939 /* constants.php */,
@@ -1437,6 +1442,7 @@
 				B77E2A8B168C35F30022C939 /* suggestions.php */,
 				B77E2A8C168C35F30022C939 /* user.php */,
 				B77E2A8D168C35F30022C939 /* welcome.php */,
+				B7BA66701691A05A00905908 /* gantt.php */,
 			);
 			path = controllers;
 			sourceTree = "<group>";

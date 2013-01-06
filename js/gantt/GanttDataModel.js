@@ -11,12 +11,53 @@
 
 ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
                
-gantt.prototype.init = function(){
-    this.request = new ih.Service();
-    this.sysUser = new ih.User();
-    this.delegate = null;
-    this.awards = null;
-};
+    gantt.prototype.init = function(){
+        this.request = new ih.Service();
+        this.sysUser = new ih.User();
+        this.delegate = null;
+        this.tasks = null;
+    };
+    
+    gantt.prototype.doLogin = function(){
+        var username = $("#user_login")[0].value;
+        var password = $("#user_pass")[0].value;
+        username = "hh";
+        password = "hh";
+        if(username && password) {
+            this.request.callService({username:username, password:password}, ih.$F(function(response){
+                    console.log(response);
+                    if (1 == response.status) {
+                        this.sysUser.setUserInfo(response);
+                        this.delegate.loginSuccess();
+                    } else {
+                        
+                    }
+                }).bind(this), ih.rootUrl + "/user/login", "POST");
+        } else {
+            ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "doLogin username or passwrd is empty"));
+        }
+    };
+  
+    gantt.prototype.reloadData = function() {
+        this.loadTasks();
+    };
+    
+    gantt.prototype.loadTasks = function() {
+    if(this.sysUser.isLogin()) {
+        this.request.callService({uid:this.sysUser.id, sex:this.sysUser.sex}, ih.$F(function(response){
+                if (1 == response.status) {
+                   this.tasks = response.data;
+                    $('[rel*="data{menuitem}"]').setData({
+                      menuitem : response.data
+                    });
+                } else {
+                    
+                }
+            }).bind(this), ih.rootUrl + "/suggestions/awards", "POST");
+    } else {
+        ih.userDefaultEngine.logConsole.push(new ih.HLog("HoneyDataModel", "User not logged in, but request data"));
+    }
+  };
 
 
 });
