@@ -18,7 +18,7 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
     
     gantt.prototype.initData = function(){
         this.bindBtnsEvent();
-//        this.datamodel.reloadData();
+        this.datamodel.reloadData();
     };
 
     gantt.prototype.viewDidLoad = function(){
