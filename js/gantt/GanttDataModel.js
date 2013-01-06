@@ -50,6 +50,8 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
         this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = response.data;
+                   this.totalPageNum = response.totalPage;
+                   $("#totalPageNumber").val(this.totalPageNum);
                    console.log(this.tasks);
                     $('[rel*="data{menuitem}"]').setData({
                       menuitem : response.data
