@@ -29,7 +29,7 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
         this.initData();
     };
     
-    honey.prototype.loginSuccess = function(){
+    gantt.prototype.loginSuccess = function(){
         this.loadGanttHtml();
     };
     
