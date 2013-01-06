@@ -16,6 +16,8 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
         this.sysUser = new ih.User();
         this.delegate = null;
         this.tasks = null;
+        this.currentPageIndex = null;
+        this.totalPageNum = null;
     };
     
     gantt.prototype.doLogin = function(){
@@ -39,12 +41,13 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     };
   
     gantt.prototype.reloadData = function() {
+        this.currentPageIndex = 1;
         this.loadTasks();
     };
     
     gantt.prototype.loadTasks = function() {
     if(this.sysUser.isLogin()) {
-        this.request.callService({}, ih.$F(function(response){
+        this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = response.data;
                    console.log(this.tasks);
