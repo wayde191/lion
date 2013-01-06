@@ -96,6 +96,14 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
     gantt.prototype.onModifyBtnClicked = function(){};
     
     gantt.prototype.onDeleteBtnClicked = function(){};
+    
+    gantt.prototype.onTaskClicked = ih.$F(function(selectedEle){
+        var self = this;
+        var jqEle = $(selectedEle.currentTarget);
+        var id = jqEle.attr('id');
+        var status = jqEle.attr('class');
+        console.log(id + status);
+    });
 
     gantt.prototype.bindBtnsEvent = function(){
         var self = this;

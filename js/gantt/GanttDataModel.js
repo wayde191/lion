@@ -49,7 +49,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
                    this.tasks = response.data;
                     $('[rel*="data{menuitem}"]').setData({
                       menuitem : response.data
-                    });
+                    }, this.delegate.onTaskClicked.bind(this.delegate));
                 } else {
                     
                 }
