@@ -44,7 +44,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     
     gantt.prototype.loadTasks = function() {
     if(this.sysUser.isLogin()) {
-        this.request.callService({uid:this.sysUser.id, sex:this.sysUser.sex}, ih.$F(function(response){
+        this.request.callService({}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = response.data;
                     $('[rel*="data{menuitem}"]').setData({
@@ -53,7 +53,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
                 } else {
                     
                 }
-            }).bind(this), ih.rootUrl + "/suggestions/awards", "POST");
+            }).bind(this), ih.rootUrl + "/gantt/gettasks", "POST");
     } else {
         ih.userDefaultEngine.logConsole.push(new ih.HLog("HoneyDataModel", "User not logged in, but request data"));
     }
