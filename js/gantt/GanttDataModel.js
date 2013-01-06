@@ -47,6 +47,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
         this.request.callService({}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = response.data;
+                   console.log(this.tasks);
                     $('[rel*="data{menuitem}"]').setData({
                       menuitem : response.data
                     }, this.delegate.onTaskClicked.bind(this.delegate));
