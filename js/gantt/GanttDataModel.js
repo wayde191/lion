@@ -18,6 +18,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
         this.tasks = null;
         this.currentPageIndex = null;
         this.totalPageNum = null;
+        this.selectedTaskArrayIndex = null;
     };
     
     gantt.prototype.doLogin = function(){
@@ -46,22 +47,129 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     };
     
     gantt.prototype.loadTasks = function() {
-    if(this.sysUser.isLogin()) {
-        this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
+        if(this.sysUser.isLogin()) {
+            this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
                 if (1 == response.status) {
-                   this.tasks = response.data;
+                   this.tasks = ih.$A(response.data);
                    this.totalPageNum = response.totalPage;
                    $("#totalPageNumber").text(this.totalPageNum);
-                   console.log(this.tasks);
                     $('[rel*="data{menuitem}"]').setData({
                       menuitem : response.data
                     }, this.delegate.onTaskClicked.bind(this.delegate));
                 } else {
-                    
+                    this.delegate.showMsg({title:'温馨提示', text:'失败'});
                 }
             }).bind(this), ih.rootUrl + "/gantt/gettasks", "POST");
+        } else {
+            ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
+        }
+    };
+    
+    gantt.prototype.loadPrePageTasks = function() {
+        if(this.currentPageIndex - 1 < 1){
+            this.delegate.showMsg({title:'温馨提示', text:'已经是第一页了'});
+            return;
+        }
+        if(this.sysUser.isLogin()) {
+            this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex - 1}, ih.$F(function(response){
+                if (1 == response.status) {
+                   this.tasks = ih.$A(response.data);
+                   this.totalPageNum = response.totalPage;
+                   this.currentPageIndex--;
+                   this.delegate.recoverContent();
+                   $("#totalPageNumber").text(this.totalPageNum);
+                   $("#currentPageIndex").text(this.currentPageIndex);
+                    $('[rel*="data{menuitem}"]').setData({
+                      menuitem : response.data
+                    }, this.delegate.onTaskClicked.bind(this.delegate));
+                } else {
+                    this.delegate.showMsg({title:'温馨提示', text:'失败'});
+                }
+            }).bind(this), ih.rootUrl + "/gantt/gettasks", "POST");
+        } else {
+            ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
+        }
+    };
+    
+    gantt.prototype.loadNextPageTasks = function() {
+        if(this.currentPageIndex + 1 > this.totalPageNum){
+            this.delegate.showMsg({title:'温馨提示', text:'已经是最后一页了'});
+            return;
+        }
+        if(this.sysUser.isLogin()) {
+            this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex + 1}, ih.$F(function(response){
+                if (1 == response.status) {
+                   this.tasks = ih.$A(response.data);
+                   this.totalPageNum = response.totalPage;
+                   this.currentPageIndex++;
+                   this.delegate.recoverContent();
+                   $("#totalPageNumber").text(this.totalPageNum);
+                   $("#currentPageIndex").text(this.currentPageIndex);
+                    $('[rel*="data{menuitem}"]').setData({
+                      menuitem : response.data
+                    }, this.delegate.onTaskClicked.bind(this.delegate));
+                } else {
+                    this.delegate.showMsg({title:'温馨提示', text:'失败'});
+                }
+            }).bind(this), ih.rootUrl + "/gantt/gettasks", "POST");
+        } else {
+            ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
+        }
+    };
+    
+  gantt.prototype.insert = function() {
+    var parametersObj = {name:$('input[name="task"]').val(), beginDate:$('input[name="begindate"]').val(), endDate:$('input[name="enddate"]').val(), principal:$('input[name="principle"]').val(), schedule:$('input[name="progress"]').val()};
+    
+    if(this.sysUser.isLogin()) {
+        this.request.callService(parametersObj, ih.$F(function(response){
+                if (1 == response.status) {
+                   this.delegate.showMsg({title:'温馨提示', text:'新增成功'});
+                   this.delegate.recoverContent();
+                   this.reloadData();
+                } else {
+                    this.delegate.showMsg({title:'温馨提示', text:'新增失败'});
+                }
+            }).bind(this), ih.rootUrl + "/gantt/insert", "POST");
     } else {
-        ih.userDefaultEngine.logConsole.push(new ih.HLog("HoneyDataModel", "User not logged in, but request data"));
+        ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
+    }
+  };
+  
+  gantt.prototype.update = function() {
+    var task = this.tasks[this.selectedTaskArrayIndex];
+    var parametersObj = {id:task.id,name:$('input[name="task"]').val(), beginDate:$('input[name="begindate"]').val(), endDate:$('input[name="enddate"]').val(), principal:$('input[name="principle"]').val(), schedule:$('input[name="progress"]').val()};
+    
+    if(this.sysUser.isLogin()) {
+        this.request.callService(parametersObj, ih.$F(function(response){
+                if (1 == response.status) {
+                   this.delegate.showMsg({title:'温馨提示', text:'更新成功'});
+                   this.delegate.recoverContent();
+                   this.reloadData();
+                } else {
+                    this.delegate.showMsg({title:'温馨提示', text:'更新失败'});
+                }
+            }).bind(this), ih.rootUrl + "/gantt/update", "POST");
+    } else {
+        ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
+    }
+  };
+  
+  gantt.prototype.delete = function() {
+    var task = this.tasks[this.selectedTaskArrayIndex];
+    var parametersObj = {id:task.id};
+    
+    if(this.sysUser.isLogin()) {
+        this.request.callService(parametersObj, ih.$F(function(response){
+                if (1 == response.status) {
+                   this.delegate.showMsg({title:'温馨提示', text:'删除成功'});
+                   this.delegate.recoverContent();
+                   this.reloadData();
+                } else {
+                    this.delegate.showMsg({title:'温馨提示', text:'删除失败'});
+                }
+            }).bind(this), ih.rootUrl + "/gantt/delete", "POST");
+    } else {
+        ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
     }
   };
 

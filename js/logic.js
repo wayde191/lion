@@ -97,7 +97,7 @@
   };
   
   ih.userDefaultEngine = engine;
-  ih.rootUrl = "http://localhost/api/trunk/index.php";
+  ih.rootUrl = "http://localhost/api/index.php";
   
   ih.loadPage();
 })(window.ih = window.ih || {});

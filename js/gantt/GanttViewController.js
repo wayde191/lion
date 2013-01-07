@@ -85,24 +85,55 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
         }
     });
     
-    gantt.prototype.onPrePageBtnClicked = function(){};
+    gantt.prototype.onPrePageBtnClicked = function(){
+        this.datamodel.loadPrePageTasks();
+    };
     
-    gantt.prototype.onNextPageBtnClicked = function(){};
+    gantt.prototype.onNextPageBtnClicked = function(){
+        this.datamodel.loadNextPageTasks();
+    };
     
-    gantt.prototype.onDrawBtnClicked = function(){};
+    gantt.prototype.onDrawBtnClicked = function(){
+        
+    };
     
-    gantt.prototype.onNewBtnClicked = function(){};
+    gantt.prototype.onNewBtnClicked = function(){
+        this.datamodel.insert();
+    };
     
-    gantt.prototype.onModifyBtnClicked = function(){};
+    gantt.prototype.onModifyBtnClicked = function(){
+        this.datamodel.update();
+    };
     
-    gantt.prototype.onDeleteBtnClicked = function(){};
+    gantt.prototype.onDeleteBtnClicked = function(){
+        this.datamodel.delete();
+    };
+    
+    gantt.prototype.clearForm = function(){
+        this.datamodel.selectedTaskArrayIndex = null;
+        $('input[name="task"]').val('');
+        $('input[name="begindate"]').val('');
+        $('input[name="enddate"]').val('');
+        $('input[name="principle"]').val('');
+        $('input[name="progress"]').val('');
+    };
+    
+    gantt.prototype.recoverContent = function() {
+       $('.honey').html('<li rel="data{menuitem}"><a rel="data{menuitem.text;menuitem.id@id;menuitem.arrayIndex@arrayIndex;menuitem.class@class}" class="" href="javascript:void(0)"></a></li>');
+    };
     
     gantt.prototype.onTaskClicked = ih.$F(function(selectedEle){
         var self = this;
         var jqEle = $(selectedEle.currentTarget);
-        var id = jqEle.attr('id');
-        var status = jqEle.attr('class');
-        console.log(id + status);
+        var arrayIndex = jqEle.attr('arrayIndex');
+        this.datamodel.selectedTaskArrayIndex = arrayIndex;
+        var task = this.datamodel.tasks[arrayIndex];
+        $('input[name="task"]').val(task.name);
+        $('input[name="begindate"]').val(task.beginDate);
+        $('input[name="enddate"]').val(task.endDate);
+        $('input[name="principle"]').val(task.principal);
+        $('input[name="progress"]').val(task.schedule);
+        
     });
 
     gantt.prototype.bindBtnsEvent = function(){
