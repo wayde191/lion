@@ -97,7 +97,9 @@
   };
   
   ih.userDefaultEngine = engine;
-  ih.rootUrl = "http://localhost/api/index.php";
-  
+  ih.rootUrl = "http://www.ihakula.com/api/index.php";
+//  ih.rootUrl = "http://localhost/api/index.php";
+ 
+ 
   ih.loadPage();
 })(window.ih = window.ih || {});
