@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<js>
+    <script path="./js/grossmargin/GrossMarginViewController.js"></script>
+    <script path="./js/grossmargin/GrossMarginDataModel.js"></script>
+</js>

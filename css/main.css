@@ -262,6 +262,15 @@ input{color:#555;}
     margin-top: 8px;
 }
 
+/****************** Gross Margin **************************/
+#grossmargin {
+    color:#FFFFFF;
+}
+
+#grossmargin input {
+    width:800px;
+}
+
 
 
 
