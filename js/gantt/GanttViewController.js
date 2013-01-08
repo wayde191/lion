@@ -93,10 +93,6 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
         this.datamodel.loadNextPageTasks();
     };
     
-    gantt.prototype.onDrawBtnClicked = function(){
-        
-    };
-    
     gantt.prototype.onNewBtnClicked = function(){
         this.datamodel.insert();
     };
@@ -107,6 +103,10 @@ ih.defineClass("ih.GanttViewController", null, null, function(GANTT, gantt){
     
     gantt.prototype.onDeleteBtnClicked = function(){
         this.datamodel.delete();
+    };
+    
+    gantt.prototype.onDrawBtnClicked = function(){
+        this.datamodel.loadAllTasks();
     };
     
     gantt.prototype.clearForm = function(){

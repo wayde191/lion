@@ -67,6 +67,7 @@
 		B73DCB59168B4EA3001FB42E /* jquery-ui-1.8.21.custom.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-ui-1.8.21.custom.min.js"; sourceTree = "<group>"; };
 		B73DCB5A168B4EA3001FB42E /* logic.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = logic.js; sourceTree = "<group>"; };
 		B73DCB5B168B4EA3001FB42E /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = test.html; path = ../test.html; sourceTree = "<group>"; };
+		B774E039169BD75D00861168 /* IHGantt.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = IHGantt.js; sourceTree = "<group>"; };
 		B77E2A6E168C28490022C939 /* conf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = conf.xml; sourceTree = "<group>"; };
 		B77E2A6F168C28750022C939 /* GanttDataModel.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GanttDataModel.js; sourceTree = "<group>"; };
 		B77E2A70168C28940022C939 /* GanttViewController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GanttViewController.js; sourceTree = "<group>"; };
@@ -1317,6 +1318,7 @@
 				B77E2A6C168C282F0022C939 /* gantt */,
 				B73DCB43168B4EA3001FB42E /* honey */,
 				B73DCB53168B4EA3001FB42E /* index */,
+				B774E039169BD75D00861168 /* IHGantt.js */,
 				B73DCB47168B4EA3001FB42E /* IHBlock.js */,
 				B73DCB48168B4EA3001FB42E /* IHCategory.js */,
 				B73DCB49168B4EA3001FB42E /* IHEngine.js */,

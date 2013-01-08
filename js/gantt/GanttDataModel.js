@@ -19,6 +19,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
         this.currentPageIndex = null;
         this.totalPageNum = null;
         this.selectedTaskArrayIndex = null;
+        this.ganttTable = new ih.Gantt(document.all.GanttChart);
     };
     
     gantt.prototype.doLogin = function(){
@@ -44,6 +45,24 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     gantt.prototype.reloadData = function() {
         this.currentPageIndex = 1;
         this.loadTasks();
+    };
+    
+    gantt.prototype.loadAllTasks = function() {
+        if(this.sysUser.isLogin()) {
+            this.request.callService({}, ih.$F(function(response){
+                if (1 == response.status) {
+                    for(var i = 0; i < response.data.length; i++){
+                        var task = response.data[i];
+                        this.ganttTable.addTaskDetail(new this.ganttTable.task(task.beginDate, task.endDate, task.text, task.principal, task.schedule));
+                    }
+                    this.ganttTable.draw();
+                } else {
+                    this.delegate.showMsg({title:'温馨提示', text:'获取项目任务列表失败'});
+                }
+            }).bind(this), ih.rootUrl + "/gantt/getAllTasks", "POST");
+        } else {
+            ih.userDefaultEngine.logConsole.push(new ih.HLog("GanttDataModel", "User not logged in, but request data"));
+        }
     };
     
     gantt.prototype.loadTasks = function() {
