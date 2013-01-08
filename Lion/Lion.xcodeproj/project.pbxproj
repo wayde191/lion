@@ -68,9 +68,6 @@
 		B73DCB5A168B4EA3001FB42E /* logic.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = logic.js; sourceTree = "<group>"; };
 		B73DCB5B168B4EA3001FB42E /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = test.html; path = ../test.html; sourceTree = "<group>"; };
 		B774E039169BD75D00861168 /* IHGantt.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = IHGantt.js; sourceTree = "<group>"; };
-		B774E03C169C0B4F00861168 /* conf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = conf.xml; sourceTree = "<group>"; };
-		B774E03D169C0B4F00861168 /* GrossMarginDataModel.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GrossMarginDataModel.js; sourceTree = "<group>"; };
-		B774E03E169C0B4F00861168 /* GrossMarginViewController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GrossMarginViewController.js; sourceTree = "<group>"; };
 		B774E040169C16FE00861168 /* grossMargin.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = grossMargin.html; path = ../grossMargin.html; sourceTree = "<group>"; };
 		B77E2A6E168C28490022C939 /* conf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = conf.xml; sourceTree = "<group>"; };
 		B77E2A6F168C28750022C939 /* GanttDataModel.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GanttDataModel.js; sourceTree = "<group>"; };
@@ -1239,6 +1236,9 @@
 		B77E2F86168C39F60022C939 /* gantt.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = gantt.html; path = ../gantt.html; sourceTree = "<group>"; };
 		B7BA666E16918D9900905908 /* database.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = database.php; sourceTree = "<group>"; };
 		B7BA66701691A05A00905908 /* gantt.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = gantt.php; sourceTree = "<group>"; };
+		B7D1D4C0169C6BB900247DE2 /* conf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = conf.xml; sourceTree = "<group>"; };
+		B7D1D4C1169C6BB900247DE2 /* GrossMarginDataModel.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GrossMarginDataModel.js; sourceTree = "<group>"; };
+		B7D1D4C2169C6BB900247DE2 /* GrossMarginViewController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GrossMarginViewController.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -1320,7 +1320,7 @@
 		B73DCB42168B4EA3001FB42E /* js */ = {
 			isa = PBXGroup;
 			children = (
-				B774E03B169C0B4F00861168 /* grossmargin */,
+				B7D1D4BF169C6BB900247DE2 /* grossMargin */,
 				B77E2A6C168C282F0022C939 /* gantt */,
 				B73DCB43168B4EA3001FB42E /* honey */,
 				B73DCB53168B4EA3001FB42E /* index */,
@@ -1364,16 +1364,6 @@
 				B73DCB56168B4EA3001FB42E /* IndexViewController.js */,
 			);
 			path = index;
-			sourceTree = "<group>";
-		};
-		B774E03B169C0B4F00861168 /* grossmargin */ = {
-			isa = PBXGroup;
-			children = (
-				B774E03C169C0B4F00861168 /* conf.xml */,
-				B774E03D169C0B4F00861168 /* GrossMarginDataModel.js */,
-				B774E03E169C0B4F00861168 /* GrossMarginViewController.js */,
-			);
-			path = grossmargin;
 			sourceTree = "<group>";
 		};
 		B77E2A6C168C282F0022C939 /* gantt */ = {
@@ -3658,6 +3648,16 @@
 				B77E2F6E168C35F30022C939 /* sidebar.php */,
 			);
 			path = "theme-compat";
+			sourceTree = "<group>";
+		};
+		B7D1D4BF169C6BB900247DE2 /* grossMargin */ = {
+			isa = PBXGroup;
+			children = (
+				B7D1D4C0169C6BB900247DE2 /* conf.xml */,
+				B7D1D4C1169C6BB900247DE2 /* GrossMarginDataModel.js */,
+				B7D1D4C2169C6BB900247DE2 /* GrossMarginViewController.js */,
+			);
+			path = grossMargin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
