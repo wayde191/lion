@@ -25,8 +25,6 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     gantt.prototype.doLogin = function(){
         var username = $("#user_login")[0].value;
         var password = $("#user_pass")[0].value;
-        username = "hh";
-        password = "hh";
         if(username && password) {
             this.request.callService({username:username, password:password}, ih.$F(function(response){
                     console.log(response);
