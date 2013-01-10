@@ -86,6 +86,13 @@ ih.defineClass("ih.Gantt", null, null, function(GANTT, gantt){
     gantt.prototype.drawThirdRow = function(){
         var _currentDate = new Date();
         _currentDate.setFullYear(_currentDate.getFullYear(), _currentDate.getMonth(), _currentDate.getDate());
+        _currentDate.setHours(0);
+        _currentDate.setMinutes(0);
+        _currentDate.setSeconds(0);
+        this._dTemp.setHours(0);
+        this._dTemp.setMinutes(0);
+        this._dTemp.setSeconds(0);
+        
         var counter = 0;
         
         //Weekend
