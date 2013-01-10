@@ -90,20 +90,23 @@ ih.defineClass("ih.Gantt", null, null, function(GANTT, gantt){
         _currentDate.setHours(0);
         _currentDate.setMinutes(0);
         _currentDate.setSeconds(0);
-        this._dTemp.setHours(0);
-        this._dTemp.setMinutes(0);
-        this._dTemp.setSeconds(0);
+        
+        var tmpDate = new Date();
+        tmpDate.setFullYear(this._dTemp.getFullYear(), this._dTemp.getMonth(), this._dTemp.getDate());
+        tmpDate.setHours(0);
+        tmpDate.setMinutes(0);
+        tmpDate.setSeconds(0);
         
         //Weekend
-        if(this._dTemp.getDay() % 6 == 0) {
-            this._gStr += "<td class='GWeekend'><div style='width:24px;'>" + this._dTemp.getDate() + "</div></td>";
-            if(Date.parse(this._dTemp) == Date.parse(_currentDate))
+        if(tmpDate.getDay() % 6 == 0) {
+            this._gStr += "<td class='GWeekend'><div style='width:24px;'>" + tmpDate.getDate() + "</div></td>";
+            if(Date.parse(tmpDate) == Date.parse(_currentDate))
                 this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GToday' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
             else
                 this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GWeekend' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
         } else {
-            this._gStr += "<td class='GDay'><div style='width:24px;'>" + this._dTemp.getDate() + "</div></td>";
-            if(Date.parse(this._dTemp) == Date.parse(_currentDate))
+            this._gStr += "<td class='GDay'><div style='width:24px;'>" + tmpDate.getDate() + "</div></td>";
+            if(Date.parse(tmpDate) == Date.parse(_currentDate))
                 this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GToday' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
             else
                 this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GDay'>&nbsp;</td>";
