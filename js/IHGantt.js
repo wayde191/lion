@@ -21,6 +21,7 @@ ih.defineClass("ih.Gantt", null, null, function(GANTT, gantt){
         this._minDate = new Date();
         this._dTemp = new Date();
         this._colSpan = 0;
+        this.counter = 0;
     };
     
     //this.addTaskDetail(new this.task('2013-01-10', '2013-01-20', '<b>1：修改1、2、4、5、6、8、9、13、15、16、22</b>', '<b>陆国宁</b>', 0));
@@ -93,21 +94,19 @@ ih.defineClass("ih.Gantt", null, null, function(GANTT, gantt){
         this._dTemp.setMinutes(0);
         this._dTemp.setSeconds(0);
         
-        var counter = 0;
-        
         //Weekend
         if(this._dTemp.getDay() % 6 == 0) {
             this._gStr += "<td class='GWeekend'><div style='width:24px;'>" + this._dTemp.getDate() + "</div></td>";
             if(Date.parse(this._dTemp) == Date.parse(_currentDate))
-                this._thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
+                this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GToday' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
             else
-                this._thirdRow += "<td id='GC_" + (counter++) + "' class='GWeekend' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
+                this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GWeekend' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
         } else {
             this._gStr += "<td class='GDay'><div style='width:24px;'>" + this._dTemp.getDate() + "</div></td>";
             if(Date.parse(this._dTemp) == Date.parse(_currentDate))
-                this._thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
+                this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GToday' style='height:" + (this._taskList.length * 21) + "px'>&nbsp;</td>";
             else
-                this._thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'>&nbsp;</td>";
+                this._thirdRow += "<td id='GC_" + (this.counter++) + "' class='GDay'>&nbsp;</td>";
         }
     };
     
