@@ -64,8 +64,12 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     };
     
     gantt.prototype.loadTasks = function() {
+        var pid = $("#projectid")[0].value;
+        if(!pid){
+            pid = 1;
+        }
         if(this.sysUser.isLogin()) {
-            this.request.callService({projectID:$("#projectid")[0].value,rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
+            this.request.callService({projectID:pid,rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = ih.$A(response.data);
                    this.totalPageNum = response.totalPage;
