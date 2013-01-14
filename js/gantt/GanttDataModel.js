@@ -47,7 +47,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     
     gantt.prototype.loadAllTasks = function() {
         if(this.sysUser.isLogin()) {
-            this.request.callService({}, ih.$F(function(response){
+            this.request.callService({projectID:$("#projectid")[0].value}, ih.$F(function(response){
                 if (1 == response.status) {
                     for(var i = 0; i < response.data.length; i++){
                         var task = response.data[i];
@@ -65,7 +65,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     
     gantt.prototype.loadTasks = function() {
         if(this.sysUser.isLogin()) {
-            this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
+            this.request.callService({projectID:$("#projectid")[0].value,rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = ih.$A(response.data);
                    this.totalPageNum = response.totalPage;
@@ -88,7 +88,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
             return;
         }
         if(this.sysUser.isLogin()) {
-            this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex - 1}, ih.$F(function(response){
+            this.request.callService({projectID:$("#projectid")[0].value,rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex - 1}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = ih.$A(response.data);
                    this.totalPageNum = response.totalPage;
@@ -114,7 +114,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
             return;
         }
         if(this.sysUser.isLogin()) {
-            this.request.callService({rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex + 1}, ih.$F(function(response){
+            this.request.callService({projectID:$("#projectid")[0].value,rowsPerPage:$("#numperpage")[0].value, pageIndex:this.currentPageIndex + 1}, ih.$F(function(response){
                 if (1 == response.status) {
                    this.tasks = ih.$A(response.data);
                    this.totalPageNum = response.totalPage;
@@ -135,7 +135,7 @@ ih.defineClass("ih.GanttDataModel", null, null, function(GANTT, gantt){
     };
     
   gantt.prototype.insert = function() {
-    var parametersObj = {name:$('input[name="task"]').val(), beginDate:$('input[name="begindate"]').val(), endDate:$('input[name="enddate"]').val(), principal:$('input[name="principle"]').val(), schedule:$('input[name="progress"]').val()};
+    var parametersObj = {projectID:$("#projectid")[0].value,name:$('input[name="task"]').val(), beginDate:$('input[name="begindate"]').val(), endDate:$('input[name="enddate"]').val(), principal:$('input[name="principle"]').val(), schedule:$('input[name="progress"]').val()};
     
     if(this.sysUser.isLogin()) {
         this.request.callService(parametersObj, ih.$F(function(response){
